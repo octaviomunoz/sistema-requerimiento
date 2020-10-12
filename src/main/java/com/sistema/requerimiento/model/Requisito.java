@@ -46,6 +46,13 @@ public class Requisito {
     @OneToMany(mappedBy = "requisito", cascade = CascadeType.ALL)
     private List<PropuestaCambio> propuestaCambio =  new ArrayList<>();
 
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "REQUISITO_REQUISITO", 
+        joinColumns = {@JoinColumn(name = "REQUISITO1")},
+        inverseJoinColumns = { @JoinColumn(name="REQUISITO2")})
+    private Set<Requisito> requisitosRelacionados;
+
     public long getId(){
         return this.id;
     }
@@ -132,5 +139,13 @@ public class Requisito {
 
     public void setPropuestaCambio(List<PropuestaCambio> propuestaCambio){
         this.propuestaCambio = propuestaCambio;
+    }
+
+    public Set<Requisito> getRequisitosRelacionados(){
+        return this.requisitosRelacionados;
+    }
+
+    public void setRequisitosRelacionados(Set<Requisito> requisitosRelacionados){
+        this.requisitosRelacionados = requisitosRelacionados;
     }
 }
