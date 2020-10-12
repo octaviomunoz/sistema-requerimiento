@@ -42,6 +42,10 @@ public class Requisito {
     @OneToMany(mappedBy = "requisito", cascade = CascadeType.ALL)
     private List<VersionRequisito> versionesRequisito = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "requisito", cascade = CascadeType.ALL)
+    private List<PropuestaCambio> propuestaCambio =  new ArrayList<>();
+
     public long getId(){
         return this.id;
     }
@@ -120,5 +124,13 @@ public class Requisito {
 
     public void setVersionesRequisitos(List<VersionRequisito> versionesRequisito){
         this.versionesRequisito = versionesRequisito;
+    }
+
+    public List<PropuestaCambio> getPropuestaCambio(){
+        return this.propuestaCambio;
+    }
+
+    public void setPropuestaCambio(List<PropuestaCambio> propuestaCambio){
+        this.propuestaCambio = propuestaCambio;
     }
 }
