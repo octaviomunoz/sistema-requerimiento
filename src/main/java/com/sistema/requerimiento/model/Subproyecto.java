@@ -27,6 +27,11 @@ public class Subproyecto {
     private Usuario liderSubproyecto;
 
     @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_analista")
+    private Usuario analista;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "subproyecto", cascade = CascadeType.ALL)
     private List<Requisito> requisitos = new ArrayList<>();
 
@@ -64,6 +69,14 @@ public class Subproyecto {
 
     public void setLiderSubproyecto(Usuario liderSubproyecto){
         this.liderSubproyecto = liderSubproyecto;
+    }
+
+    public Usuario getAnalista(){
+        return this.analista;
+    }
+
+    public void setAnalista(Usuario analista){
+        this.analista = analista;
     }
 
     public List<Requisito> getRequisitos(){

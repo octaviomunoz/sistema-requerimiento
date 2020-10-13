@@ -53,6 +53,11 @@ public class Requisito {
         inverseJoinColumns = { @JoinColumn(name="REQUISITO2")})
     private Set<Requisito> requisitosRelacionados;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_analista")
+    private Usuario analista;
+
     public long getId(){
         return this.id;
     }
@@ -147,5 +152,13 @@ public class Requisito {
 
     public void setRequisitosRelacionados(Set<Requisito> requisitosRelacionados){
         this.requisitosRelacionados = requisitosRelacionados;
+    }
+
+    public Usuario getAnalista(){
+        return this.analista;
+    }
+
+    public void setAnalista(Usuario analista){
+        this.analista = analista;
     }
 }
