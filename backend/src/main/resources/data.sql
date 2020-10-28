@@ -9,10 +9,11 @@ INSERT INTO rol (descripcion, nombre) VALUES ('Rol Jefe de Proyecto', 'JEFE_PROY
 INSERT INTO rol (descripcion, nombre) VALUES ('Rol de Cliente', 'CLIENTE');
 INSERT INTO rol (descripcion, nombre) VALUES ('Rol Usuario', 'USUARIO');
 
-
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (1, 1);
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (1, 2);
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (1, 3);
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (1, 4);
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (1, 5);
 INSERT INTO usuario_roles (USER_ID, ROL_ID) VALUES (2, 2);
+
+INSERT INTO proyectos (nombre, id_jefe_proyecto) VALUES ('Sistema de Tienda', 1);
